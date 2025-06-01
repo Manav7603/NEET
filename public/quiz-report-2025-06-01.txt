@@ -1,0 +1,219 @@
+
+===========================================
+           QUIZ RESULT REPORT             
+===========================================
+Date: Sunday, June 1, 2025 at 12:16 PM
+
+OVERALL PERFORMANCE
+------------------
+Total Score: 14/80 (18%)
+Correct Answers: 5 (+20 marks)
+Wrong Answers: 6 (-6 marks)
+Unattempted: 9
+Accuracy: 45%
+
+SECTION-WISE ANALYSIS
+--------------------
+
+    Botany
+    ├── Total Questions: 5
+    ├── Correct Answers: 1 (+4 marks)
+    ├── Wrong Answers: 2 (-2 marks)
+    ├── Unattempted: 2
+    ├── Total Marks: 2/20
+    └── Accuracy: 33%
+  
+
+    Zoology
+    ├── Total Questions: 5
+    ├── Correct Answers: 2 (+8 marks)
+    ├── Wrong Answers: 1 (-1 marks)
+    ├── Unattempted: 2
+    ├── Total Marks: 7/20
+    └── Accuracy: 67%
+  
+
+    Physics
+    ├── Total Questions: 5
+    ├── Correct Answers: 0 (+0 marks)
+    ├── Wrong Answers: 1 (-1 marks)
+    ├── Unattempted: 4
+    ├── Total Marks: -1/20
+    └── Accuracy: 0%
+  
+
+    Chemistry
+    ├── Total Questions: 5
+    ├── Correct Answers: 2 (+8 marks)
+    ├── Wrong Answers: 2 (-2 marks)
+    ├── Unattempted: 1
+    ├── Total Marks: 6/20
+    └── Accuracy: 50%
+  
+
+QUESTION-WISE ANALYSIS
+--------------------
+
+    Question 1
+    ├── What is the primary function of phloem tissue in plants?
+    ├── Your Answer: Support structure
+    ├── Correct Answer: Transport food
+    ├── Status: Incorrect ✗
+    └── Marks: -1
+  
+
+    Question 2
+    ├── Which plant organelle contains thylakoids?
+    ├── Your Answer: Chloroplast
+    ├── Correct Answer: Chloroplast
+    ├── Status: Correct ✓
+    └── Marks: +4
+  
+
+    Question 3
+    ├── What is the role of guard cells in leaves?
+    ├── Your Answer: Photosynthesis
+    ├── Correct Answer: Control stomata opening
+    ├── Status: Incorrect ✗
+    └── Marks: -1
+  
+
+    Question 4
+    ├── Which chemical regulates fruit ripening in plants?
+    ├── Your Answer: Not attempted
+    ├── Correct Answer: Ethylene
+    ├── Status: Not Attempted ○
+    └── Marks: 0
+  
+
+    Question 5
+    ├── During photosynthesis, oxygen is produced from:
+    ├── Your Answer: Not attempted
+    ├── Correct Answer: Water
+    ├── Status: Not Attempted ○
+    └── Marks: 0
+  
+
+    Question 6
+    ├── What is the function of the nephron?
+    ├── Your Answer: Not attempted
+    ├── Correct Answer: Blood filtration
+    ├── Status: Not Attempted ○
+    └── Marks: 0
+  
+
+    Question 7
+    ├── Which part of the brain controls balance and coordination?
+    ├── Your Answer: Not attempted
+    ├── Correct Answer: Cerebellum
+    ├── Status: Not Attempted ○
+    └── Marks: 0
+  
+
+    Question 8
+    ├── What is the role of hemoglobin?
+    ├── Your Answer: Transport oxygen
+    ├── Correct Answer: Transport oxygen
+    ├── Status: Correct ✓
+    └── Marks: +4
+  
+
+    Question 9
+    ├── Which organ produces insulin?
+    ├── Your Answer: Kidney
+    ├── Correct Answer: Pancreas
+    ├── Status: Incorrect ✗
+    └── Marks: -1
+  
+
+    Question 10
+    ├── What type of joint is the elbow?
+    ├── Your Answer: Hinge
+    ├── Correct Answer: Hinge
+    ├── Status: Correct ✓
+    └── Marks: +4
+  
+
+    Question 11
+    ├── What is the SI unit of pressure?
+    ├── Your Answer: Not attempted
+    ├── Correct Answer: Pascal
+    ├── Status: Not Attempted ○
+    └── Marks: 0
+  
+
+    Question 12
+    ├── Which electromagnetic wave has the shortest wavelength?
+    ├── Your Answer: Not attempted
+    ├── Correct Answer: Gamma rays
+    ├── Status: Not Attempted ○
+    └── Marks: 0
+  
+
+    Question 13
+    ├── What is the principle behind a transformer?
+    ├── Your Answer: Not attempted
+    ├── Correct Answer: Electromagnetic induction
+    ├── Status: Not Attempted ○
+    └── Marks: 0
+  
+
+    Question 14
+    ├── Which particle has a negative charge?
+    ├── Your Answer: Not attempted
+    ├── Correct Answer: Electron
+    ├── Status: Not Attempted ○
+    └── Marks: 0
+  
+
+    Question 15
+    ├── What is the formula for kinetic energy?
+    ├── Your Answer: mc²
+    ├── Correct Answer: ½mv²
+    ├── Status: Incorrect ✗
+    └── Marks: -1
+  
+
+    Question 16
+    ├── What is the atomic number of sodium (Na)?
+    ├── Your Answer: 13
+    ├── Correct Answer: 11
+    ├── Status: Incorrect ✗
+    └── Marks: -1
+  
+
+    Question 17
+    ├── Which of these is a noble gas?
+    ├── Your Answer: Neon
+    ├── Correct Answer: Neon
+    ├── Status: Correct ✓
+    └── Marks: +4
+  
+
+    Question 18
+    ├── What type of bond is formed between Na+ and Cl-?
+    ├── Your Answer: Covalent
+    ├── Correct Answer: Ionic
+    ├── Status: Incorrect ✗
+    └── Marks: -1
+  
+
+    Question 19
+    ├── Which element is a liquid at room temperature?
+    ├── Your Answer: Mercury
+    ├── Correct Answer: Mercury
+    ├── Status: Correct ✓
+    └── Marks: +4
+  
+
+    Question 20
+    ├── What is the pH of a neutral solution?
+    ├── Your Answer: Not attempted
+    ├── Correct Answer: 7
+    ├── Status: Not Attempted ○
+    └── Marks: 0
+  
+
+===========================================
+Generated by NEET PREP Quiz App
+===========================================
