@@ -1,1 +1,1 @@
-id,date,time,sections,score,totalQuestions,timeTaken
+id,date,time,sections,score,totalQuestions,timeTaken,correctCount,incorrectCount,accuracy

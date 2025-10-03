@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { BookOpen, Microscope, Atom, Leaf, Clock, Award, BarChart3, CheckCircle, XCircle, RefreshCw, Flag, Filter, History, Eye, Download } from 'lucide-react';
 import { loadQuizHistory, saveQuizHistory } from './historyManager';
 import { sections } from './data/questions';
+import { generatePDF } from './utils/pdfGenerator';
+import { DataViewer } from './components/DataViewer';
+import { saveQuizResult, getAllRecords } from './utils/db';
 
 const ConfirmModal = ({ isOpen, onClose, onConfirm }) => {
   if (!isOpen) return null;
@@ -10,14 +13,14 @@ const ConfirmModal = ({ isOpen, onClose, onConfirm }) => {
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-white rounded-xl p-6 max-w-md w-full mx-4">
         <h3 className="text-xl font-bold mb-4">Are you ready to start the test?</h3>
-        <p className="text-gray-600 mb-6">
+        <div className="text-gray-600 mb-6">
           Make sure you have:
           <ul className="list-disc ml-5 mt-2">
             <li>A quiet environment</li>
             <li>Stable internet connection</li>
             <li>90 minutes of uninterrupted time</li>
           </ul>
-        </p>
+        </div>
         <div className="flex justify-end space-x-4">
           <button
             onClick={onClose}
@@ -173,38 +176,121 @@ const MCQQuizApp = () => {
     setCurrentQuestionIndex(questionIndex);
   };
 
-  // Update submitQuiz function to include marks data
-  const submitQuiz = () => {
-    setEndTime(new Date());
-    
-    const results = calculateResults();
-    const quizResult = {
-      id: Date.now(),
-      date: new Date().toLocaleDateString(),
-      time: new Date().toLocaleTimeString(),
-      sections: selectedSections.map(key => sections[key].name),
-      totalQuestions: quizQuestions.length,
-      answers: userAnswers,
-      questions: quizQuestions,
-      markedForReview: markedForReview,
-      duration: quizDuration,
-      timeTaken: Math.round(((new Date()) - startTime) / 1000),
-      // Add score details
-      totalMarks: results.totalMarks,
-      maxPossibleMarks: results.maxPossibleMarks,
-      correctCount: results.correctCount,
-      incorrectCount: results.incorrectCount,
-      sectionWiseScore: results.sectionWiseScore
+  // Add this utility function at the top level
+  const ensureValidQuestion = (question) => {
+    return {
+      question: question?.question || '',
+      options: Array.isArray(question?.options) ? question.options : [],
+      correct: question?.correct ?? 0,
+      section: question?.section || '',
+      image: question?.image || null
     };
+  };
+
+  // Update calculateResults function
+  const calculateResults = () => {
+    if (!quizQuestions?.length) return null;
+
+    // Ensure all questions are valid
+    const validQuestions = quizQuestions.map(ensureValidQuestion);
     
-    saveQuizHistory(quizResult);
-    setQuizHistory(prev => [quizResult, ...prev.slice(0, 9)]);
-    setCurrentScreen('results');
-    
-    // Automatically download results
-    setTimeout(() => {
-      downloadResults(results);
-    }, 500);
+    const totalQuestions = validQuestions.length;
+    let correctCount = 0;
+    let incorrectCount = 0;
+    let totalMarks = 0;
+    const maxPossibleMarks = totalQuestions * 4;
+    const sectionWiseScore = {};
+
+    // Initialize section scores with safety checks
+    selectedSections.forEach(section => {
+      if (sections[section]) {
+        sectionWiseScore[section] = {
+          name: sections[section].name,
+          total: 0,
+          correct: 0,
+          incorrect: 0,
+          unattempted: 0,
+          marks: 0,
+          maxMarks: 0
+        };
+      }
+    });
+
+    // Calculate scores with null checks
+    validQuestions.forEach((question, index) => {
+      const section = question.section;
+      if (!sectionWiseScore[section]) return;
+
+      sectionWiseScore[section].total += 1;
+      sectionWiseScore[section].maxMarks += 4;
+
+      if (userAnswers[index] === null || userAnswers[index] === undefined) {
+        sectionWiseScore[section].unattempted += 1;
+      } else if (userAnswers[index] === question.correct) {
+        correctCount++;
+        totalMarks += 4;
+        sectionWiseScore[section].correct += 1;
+        sectionWiseScore[section].marks += 4;
+      } else {
+        incorrectCount++;
+        totalMarks -= 1;
+        sectionWiseScore[section].incorrect += 1;
+        sectionWiseScore[section].marks -= 1;
+      }
+    });
+
+    const unattempted = totalQuestions - (correctCount + incorrectCount);
+    const totalAttempted = correctCount + incorrectCount;
+    const accuracy = totalAttempted > 0 ? Math.round((correctCount / totalAttempted) * 100) : 0;
+
+    return {
+      totalQuestions,
+      correctCount,
+      incorrectCount,
+      unattempted,
+      totalMarks,
+      maxPossibleMarks,
+      accuracy,
+      scorePercentage: Math.round((totalMarks / maxPossibleMarks) * 100),
+      marksDisplay: `${totalMarks}/${maxPossibleMarks}`,
+      sectionWiseScore,
+      sectionWiseAnalysis: Object.keys(sectionWiseScore).map(section => ({
+        section,
+        ...sectionWiseScore[section]
+      })),
+      timeTaken: Math.round((endTime - startTime) / 1000),
+      questionsAnalysis: quizQuestions.map((q, index) => ({
+        question: q.question,
+        correctAnswer: q.options[q.correct],
+        userAnswer: userAnswers[index] !== null ? q.options[userAnswers[index]] : 'Not attempted',
+        isCorrect: userAnswers[index] === q.correct,
+        marks: userAnswers[index] === null ? 0 : 
+               userAnswers[index] === q.correct ? 4 : -1,
+        section: sections[q.section].name
+      }))
+    };
+  };
+
+  // Update submitQuiz function
+  const submitQuiz = async () => {
+    try {
+      if (!quizQuestions?.length) {
+        throw new Error('No questions available');
+      }
+
+      setEndTime(new Date());
+      const results = calculateResults();
+      
+      if (!results) {
+        throw new Error('Failed to calculate results');
+      }
+
+      await saveQuizResult(results);
+      setCurrentScreen('results');
+    } catch (error) {
+      console.error('Error submitting quiz:', error);
+      alert('There was an error submitting the quiz. Please try again.');
+    }
   };
 
   const formatTime = (seconds) => {
@@ -252,84 +338,6 @@ const MCQQuizApp = () => {
     accuracy: 0
   });
 
-  // Update calculateResults function
-  const calculateResults = () => {
-    if (!quizQuestions.length) return null;
-
-    const totalQuestions = quizQuestions.length;
-    let correctCount = 0;
-    let incorrectCount = 0;
-    let totalMarks = 0;
-    const maxPossibleMarks = totalQuestions * 4;
-    const sectionWiseScore = {};
-
-    // Initialize section scores
-    selectedSections.forEach(section => {
-      sectionWiseScore[section] = {
-        name: sections[section].name,
-        total: 0,
-        correct: 0,
-        incorrect: 0,
-        unattempted: 0,
-        marks: 0,
-        maxMarks: 0
-      };
-    });
-
-    // Calculate scores
-    quizQuestions.forEach((question, index) => {
-      const section = question.section;
-      sectionWiseScore[section].total += 1;
-      sectionWiseScore[section].maxMarks += 4;
-
-      if (userAnswers[index] === null) {
-        sectionWiseScore[section].unattempted += 1;
-      } else if (userAnswers[index] === question.correct) {
-        correctCount++;
-        totalMarks += 4;
-        sectionWiseScore[section].correct += 1;
-        sectionWiseScore[section].marks += 4;
-      } else {
-        incorrectCount++;
-        totalMarks -= 1;
-        sectionWiseScore[section].incorrect += 1;
-        sectionWiseScore[section].marks -= 1;
-      }
-    });
-
-    const unattempted = totalQuestions - (correctCount + incorrectCount);
-    const totalAttempted = correctCount + incorrectCount;
-    const accuracy = totalAttempted > 0 ? Math.round((correctCount / totalAttempted) * 100) : 0;
-
-    return {
-      totalQuestions,
-      correctCount,
-      incorrectCount,
-      unattempted,
-      totalMarks,
-      maxPossibleMarks,
-      accuracy,
-      scorePercentage: Math.round((totalMarks / maxPossibleMarks) * 100),
-      marksDisplay: `${totalMarks}/${maxPossibleMarks}`,
-      sectionWiseScore,
-      sectionWiseAnalysis: Object.keys(sectionWiseScore).map(section => ({
-        section,
-        ...sectionWiseScore[section]
-      })),
-      timeTaken: Math.round((endTime - startTime) / 1000),
-      questionsAnalysis: quizQuestions.map((q, index) => ({
-        question: q.question,
-        correctAnswer: q.options[q.correct],
-        userAnswer: userAnswers[index] !== null ? q.options[userAnswers[index]] : 'Not attempted',
-        isCorrect: userAnswers[index] === q.correct,
-        marks: userAnswers[index] === null ? 0 : 
-               userAnswers[index] === q.correct ? 4 : -1,
-        section: sections[q.section].name
-      }))
-    };
-  };
-
-  // Update time duration options
   const timeOptions = [
     { value: 5, label: '5 minutes' },
     { value: 10, label: '10 minutes' },
@@ -459,11 +467,8 @@ const MCQQuizApp = () => {
   }
 
   if (currentScreen === 'quiz') {
-    const currentQuestion = quizQuestions[currentQuestionIndex];
-    const answeredCount = userAnswers.filter(answer => answer !== null).length;
-    const reviewCount = markedForReview.filter(marked => marked).length;
-    const filteredIndices = getFilteredQuestionIndices();
-
+    const currentQuestion = quizQuestions[currentQuestionIndex] || {};
+    
     return (
       <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-white to-cyan-100 p-4">
         <div className="max-w-7xl mx-auto flex gap-6">
@@ -482,20 +487,20 @@ const MCQQuizApp = () => {
               <div className="mb-4">
                 <div className="flex justify-between text-sm text-gray-600 mb-2">
                   <span>Progress</span>
-                  <span>{answeredCount}/{quizQuestions.length}</span>
+                  <span>{userAnswers.filter(answer => answer !== null).length}/{quizQuestions.length}</span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
                   <div 
                     className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-300"
-                    style={{ width: `${(answeredCount / quizQuestions.length) * 100}%` }}
+                    style={{ width: `${(userAnswers.filter(answer => answer !== null).length / quizQuestions.length) * 100}%` }}
                   ></div>
                 </div>
               </div>
 
-              {reviewCount > 0 && (
+              {markedForReview.filter(marked => marked).length > 0 && (
                 <div className="text-sm text-orange-600 mb-2">
                   <Flag className="w-4 h-4 inline mr-1" />
-                  {reviewCount} marked for review
+                  {markedForReview.filter(marked => marked).length} marked for review
                 </div>
               )}
             </div>
@@ -536,15 +541,15 @@ const MCQQuizApp = () => {
             <div className="mb-6">
               <div className="flex justify-between items-center mb-3">
                 <h3 className="font-semibold text-gray-800">Questions</h3>
-                {reviewCount > 0 && (
+                {markedForReview.filter(marked => marked).length > 0 && (
                   <div className="text-sm text-orange-600 flex items-center">
                     <Flag className="w-4 h-4 mr-1" />
-                    {reviewCount} for review
+                    {markedForReview.filter(marked => marked).length} for review
                   </div>
                 )}
               </div>
               <div className="grid grid-cols-5 gap-2 max-h-96 overflow-y-auto">
-                {filteredIndices.map((originalIndex) => (
+                {getFilteredQuestionIndices().map((originalIndex) => (
                   <button
                     key={originalIndex}
                     onClick={() => navigateToQuestion(originalIndex)}
@@ -597,78 +602,52 @@ const MCQQuizApp = () => {
           {/* Main Quiz Content */}
           <div className="flex-1">
             <div className="bg-white rounded-xl shadow-lg p-8">
-              <div className="flex justify-between items-center mb-6">
-                <div className="flex items-center space-x-2">
-                  <div className={`p-2 rounded-lg ${sections[currentQuestion.section].color}`}>
-                    <div className="text-white">
-                      {sections[currentQuestion.section].icon}
-                    </div>
-                  </div>
-                  <span className="font-semibold text-gray-700">
-                    {sections[currentQuestion.section].name}
-                  </span>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <button
-                    onClick={toggleMarkForReview}
-                    className={`px-4 py-2 rounded-lg font-semibold transition-all duration-300 flex items-center space-x-2 ${
-                      markedForReview[currentQuestionIndex]
-                        ? 'bg-orange-100 border-2 border-orange-500 text-orange-600'
-                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                    }`}
-                  >
-                    <Flag className={markedForReview[currentQuestionIndex] ? "w-4 h-4 text-orange-500" : "w-4 h-4"} />
-                    <span>{markedForReview[currentQuestionIndex] ? 'Marked' : 'Mark for Review'}</span>
-                  </button>
-                  <div className="text-sm text-gray-500">
-                    Question {currentQuestionIndex + 1} of {quizQuestions.length}
-                  </div>
-                </div>
-              </div>
-
               <div className="mb-8">
-                <h2 className="text-2xl font-semibold text-gray-800 mb-6">
-                  {currentQuestion.question}
-                </h2>
+                <div className="prose max-w-none">
+                  <div className="text-lg font-medium text-gray-800 mb-6">
+                    {currentQuestion.question}
+                  </div>
+                </div>
+
+                {currentQuestion.image && (
+                  <div className="my-6 flex justify-center">
+                    <img 
+                      src={currentQuestion.image} 
+                      alt="Question diagram" 
+                      className="max-w-full h-auto rounded-lg shadow-md"
+                    />
+                  </div>
+                )}
 
                 <div className="space-y-4">
-                  {currentQuestion.options.map((option, index) => (
+                  {Array.isArray(currentQuestion.options) && currentQuestion.options.map((option, index) => (
                     <button
                       key={index}
                       onClick={() => handleAnswer(index)}
-                      className={`w-full p-4 text-left rounded-lg border-2 transition-all duration-300 group ${
+                      className={`w-full p-4 text-left rounded-lg border-2 transition-all duration-300 ${
                         userAnswers[currentQuestionIndex] === index
                           ? 'border-blue-500 bg-blue-50'
                           : 'border-gray-200 hover:border-blue-400 hover:bg-blue-50'
                       }`}
                     >
                       <div className="flex items-center space-x-4">
-                        <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center ${
+                        <div className={`w-8 h-8 shrink-0 rounded-full border-2 flex items-center justify-center ${
                           userAnswers[currentQuestionIndex] === index
                             ? 'border-blue-500 bg-blue-500 text-white'
-                            : 'border-gray-300 group-hover:border-blue-400'
+                            : 'border-gray-300'
                         }`}>
-                          <span className={`font-semibold ${
-                            userAnswers[currentQuestionIndex] === index
-                              ? 'text-white'
-                              : 'text-gray-600 group-hover:text-blue-600'
-                          }`}>
-                            {String.fromCharCode(65 + index)}
-                          </span>
+                          <span className="font-semibold">{String.fromCharCode(65 + index)}</span>
                         </div>
-                        <span className={`${
-                          userAnswers[currentQuestionIndex] === index
-                            ? 'text-blue-700'
-                            : 'text-gray-700 group-hover:text-blue-700'
-                        }`}>
+                        <div className="flex-1">
                           {option}
-                        </span>
+                        </div>
                       </div>
                     </button>
                   ))}
                 </div>
               </div>
 
+              {/* Navigation buttons */}
               <div className="flex justify-between">
                 <button
                   onClick={() => navigateToQuestion(Math.max(0, currentQuestionIndex - 1))}
@@ -926,8 +905,11 @@ const MCQQuizApp = () => {
       <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-white to-cyan-100 p-4">
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-xl shadow-lg p-8">
-            <div className="flex justify-between items-center mb-8">
-              <h1 className="text-3xl font-bold text-gray-800">Quiz History</h1>
+            <div className="flex justify-between items-center mb-4">
+              <div>
+                <h1 className="text-3xl font-bold text-gray-800">Quiz History</h1>
+                <p className="text-sm text-gray-500 mt-1">Stored in browser session</p>
+              </div>
               <button
                 onClick={resetQuiz}
                 className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-all duration-300"
@@ -935,6 +917,9 @@ const MCQQuizApp = () => {
                 Back to Home
               </button>
             </div>
+
+            {/* Add DataViewer component */}
+            <DataViewer />
 
             {quizHistory.length === 0 ? (
               <div className="text-center text-gray-600 py-8">
@@ -1053,72 +1038,10 @@ const MCQQuizApp = () => {
   }
 }; // End of MCQQuizApp component
 
-// Add this function at the top level
-const downloadResults = (results) => {
-  const formatDate = (date) => new Date(date).toLocaleDateString('en-US', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit'
-  });
-
-  const formatSection = (section) => `
-    ${section.name}
-    ├── Total Questions: ${section.total}
-    ├── Correct Answers: ${section.correct} (+${section.correct * 4} marks)
-    ├── Wrong Answers: ${section.incorrect} (-${section.incorrect} marks)
-    ├── Unattempted: ${section.unattempted}
-    ├── Total Marks: ${section.marks}/${section.maxMarks}
-    └── Accuracy: ${Math.round((section.correct / (section.correct + section.incorrect)) * 100) || 0}%
-  `;
-
-  const formatQuestionAnalysis = (q, idx) => `
-    Question ${idx + 1}
-    ├── ${q.question}
-    ├── Your Answer: ${q.userAnswer}
-    ├── Correct Answer: ${q.correctAnswer}
-    ├── Status: ${q.isCorrect ? 'Correct ✓' : q.userAnswer === 'Not attempted' ? 'Not Attempted ○' : 'Incorrect ✗'}
-    └── Marks: ${q.marks > 0 ? `+${q.marks}` : q.marks}
-  `;
-
-  const reportContent = `
-===========================================
-           QUIZ RESULT REPORT             
-===========================================
-Date: ${formatDate(new Date())}
-
-OVERALL PERFORMANCE
-------------------
-Total Score: ${results.totalMarks}/${results.maxPossibleMarks} (${results.scorePercentage}%)
-Correct Answers: ${results.correctCount} (+${results.correctCount * 4} marks)
-Wrong Answers: ${results.incorrectCount} (-${results.incorrectCount} marks)
-Unattempted: ${results.unattempted}
-Accuracy: ${results.accuracy}%
-
-SECTION-WISE ANALYSIS
---------------------
-${Object.entries(results.sectionWiseScore).map(([_, section]) => formatSection(section)).join('\n')}
-
-QUESTION-WISE ANALYSIS
---------------------
-${results.questionsAnalysis.map((q, idx) => formatQuestionAnalysis(q, idx)).join('\n')}
-
-===========================================
-Generated by NEET PREP Quiz App
-===========================================
-`;
-
-  const blob = new Blob([reportContent], { type: 'text/plain;charset=utf-8' });
-  const url = window.URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `quiz-report-${new Date().toISOString().split('T')[0]}.txt`;
-  document.body.appendChild(a);
-  a.click();
-  window.URL.revokeObjectURL(url);
-  document.body.removeChild(a);
+// Update downloadResults function
+const downloadResults = async (results) => {
+  const doc = generatePDF(results);
+  doc.save(`quiz-report-${new Date().toISOString().split('T')[0]}.pdf`);
 };
 
 // Replace ScoreCard component with fixed styling

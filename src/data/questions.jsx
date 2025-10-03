@@ -1,987 +1,564 @@
 import { BookOpen, Microscope, Atom, Leaf } from 'lucide-react';
 
 export const sections = {
-botany: {
-  name: 'Botany',
-  icon: <Leaf className="w-6 h-6" />,
-  color: 'bg-green-500',
-  questions: [
-    {
-      question: "Which of the following statements is NOT true?",
-      options: [
-        "Tapetum helps in the dehiscence of anther",
-        "Exine of pollen grains is made up of sporopollenin",
-        "Most species of pollen grains can cause allergic reactions",
-        "None of the above"
-      ],
-      correct: 0
-    },
-    {
-      question: "Pollination in water hyacinth and water lily is brought about by the agency of",
-      options: [
-        "Bats",
-        "Water",
-        "Molluscs",
-        "Insects or Wind"
-      ],
-      correct: 1
-    },
-    {
-      question: "The ovule of an angiosperm is technically equivalent to",
-      options: [
-        "Megasporangium",
-        "Megasporophyll",
-        "Megaspore mother cell",
-        "Megaspore"
-      ],
-      correct: 0
-    },
-    {
-      question: "Which one of the following may require pollinators but is genetically similar to autogamy?",
-      options: [
-        "Geitonogamy",
-        "Xenogamy",
-        "Apogamy",
-        "Cleistogamy"
-      ],
-      correct: 0
-    },
-    {
-      question: "Assertion (I): A mature angiosperm embryo sac is 8-nucleate.\nReason (II): A mature angiosperm embryo sac is 7-celled.",
-      options: [
-        "Both I and II are true and II explains I",
-        "Both I and II are true but II does not explain I",
-        "I is true, II is false",
-        "I is false, II is true"
-      ],
-      correct: 1
-    },
-    {
-      question: "Attractants and rewards are required for",
-      options: [
-        "Hydrophily",
-        "Anemophily",
-        "Entomophily",
-        "All of the above"
-      ],
-      correct: 2
-    },
-    {
-      question: "The morphological nature of the edible part of the coconut is",
-      options: [
-        "Endosperm",
-        "Ectoderm",
-        "Cotyledon",
-        "Mesocarp"
-      ],
-      correct: 0
-    },
-    {
-      question: "A dioecious flowering plant prevents both",
-      options: [
-        "Autogamy and Geitonogamy",
-        "Autogamy and Xenogamy",
-        "Geitonogamy and Xenogamy",
-        "None of the above"
-      ],
-      correct: 0
-    },
-    {
-      question: "A functional megaspore in an angiosperm develops into",
-      options: [
-        "Endoderm",
-        "Ovule",
-        "Embryo",
-        "Embryo sac"
-      ],
-      correct: 3
-    },
-    {
-      question: "Seed formation without fertilization in flowering plants involves the process of",
-      options: [
-        "Apomixis",
-        "Budding",
-        "Sporulation",
-        "Somatic hybridization"
-      ],
-      correct: 0
-    },
-    {
-      question: "Double fertilization is",
-      options: [
-        "Fusion of two male gametes of a pollen tube with two different eggs",
-        "Fusion of one male gamete with two polar nuclei",
-        "Fusion of two male gametes with one egg",
-        "Syngamy and triple fusion"
-      ],
-      correct: 3
-    },
-    {
-      question: "Winged pollen grains are present in",
-      options: [
-        "Mustard",
-        "Cycas",
-        "Mango",
-        "Pinus"
-      ],
-      correct: 3
-    },
-    {
-      question: "Flowers which have a single ovule in the ovary and are packed into an inflorescence are usually pollinated by",
-      options: [
-        "Bee",
-        "Wind",
-        "Bat",
-        "Water"
-      ],
-      correct: 1
-    },
-    {
-      question: "Assertion (I): Double fertilization involves the fusion of two male gametes with one egg cell.\nReason (II): One male gamete fuses with the egg cell and the other fuses with two polar nuclei.",
-      options: [
-        "Both I and II are true and II explains I",
-        "Both I and II are true but II does not explain I",
-        "I is true, II is false",
-        "I is false, II is true"
-      ],
-      correct: 3
-    },
-    {
-      question: "Synergids are part of",
-      options: [
-        "Megasporogenesis",
-        "Female gametophyte",
-        "Male gametophyte",
-        "Endosperm"
-      ],
-      correct: 1
-    },
-    {
-      question: "Which of the following fruits is parthenocarpic?",
-      options: [
-        "Banana",
-        "Apple",
-        "Orange",
-        "Mango"
-      ],
-      correct: 0
-    },
-    {
-      question: "The type of placentation found in mustard is",
-      options: [
-        "Axile",
-        "Parietal",
-        "Free central",
-        "Basal"
-      ],
-      correct: 1
-    },
-    {
-      question: "An angiosperm embryo sac at maturity is",
-      options: [
-        "8-nucleate and 7-celled",
-        "7-nucleate and 8-celled",
-        "8-nucleate and 8-celled",
-        "7-nucleate and 7-celled"
-      ],
-      correct: 0
-    },
-    {
-      question: "A flower with long, feathery stigmas and exposed stamens indicates pollination by",
-      options: [
-        "Wind",
-        "Water",
-        "Insects",
-        "Birds"
-      ],
-      correct: 0
-    },
-    {
-      question: "Assertion (I): Tapetum is the innermost layer of the anther that provides nutrition to developing pollen.\nReason (II): Tapetum helps in anther dehiscence.",
-      options: [
-        "Both I and II are true and II explains I",
-        "Both I and II are true but II does not explain I",
-        "I is true, II is false",
-        "I is false, II is true"
-      ],
-      correct: 2
-    },
-    {
-      question: "Which of the following structures gives rise to pollen grains in anther?",
-      options: [
-        "Microsporocyte",
-        "Megasporocyte",
-        "Ovule",
-        "Ovule primordium"
-      ],
-      correct: 0
-    },
-    {
-      question: "During microsporogenesis, the microsporocyte directly undergoes",
-      options: [
-        "Mitosis to form microspores",
-        "Meiosis to form microspores",
-        "Meiosis to form megaspores",
-        "Mitosis to form megaspores"
-      ],
-      correct: 1
-    },
-    {
-      question: "The part of the pistil that receives pollen is called",
-      options: [
-        "Ovule",
-        "Style",
-        "Stigma",
-        "Ovary"
-      ],
-      correct: 2
-    },
-    {
-      question: "In an angiosperm, primary endosperm is formed by fusion of",
-      options: [
-        "Two male gametes",
-        "One male gamete and one synergid",
-        "One male gamete and two polar nuclei",
-        "One male gamete and egg cell"
-      ],
-      correct: 2
-    },
-    {
-      question: "Assertion (I): There are two synergids in a mature angiosperm embryo sac.\nReason (II): Synergids help in pollen tube entry.",
-      options: [
-        "Both I and II are true and II explains I",
-        "Both I and II are true but II does not explain I",
-        "I is true, II is false",
-        "I is false, II is true"
-      ],
-      correct: 1
-    },
-    {
-      question: "The receptive surface for pollen in flowers is the",
-      options: [
-        "Anther",
-        "Filament",
-        "Stigma",
-        "Thalamus"
-      ],
-      correct: 2
-    },
-    {
-      question: "Which of the following is NOT a function of the tapetum?",
-      options: [
-        "Nourishment of developing pollen",
-        "Secretion of sporopollenin precursors",
-        "Formation of pollen wall",
-        "Production of male gametes"
-      ],
-      correct: 3
-    },
-    {
-      question: "Which of the following is characteristic of entomophilous flowers?",
-      options: [
-        "Small, greenish petals",
-        "Large, colorful petals with nectar",
-        "Exserted stamens with feathery pollen",
-        "No fragrance"
-      ],
-      correct: 1
-    },
-    {
-      question: "Which of the following represents a post-fertilization event?",
-      options: [
-        "Pollen germination",
-        "Pollen tube growth",
-        "Embryo development",
-        "Syngamy"
-      ],
-      correct: 2
-    },
-    {
-      question: "Which one of the following shows the correct sequence of events in sexual reproduction of angiosperms?",
-      options: [
-        "Pollination → Fertilization → Seed formation → Fruit formation",
-        "Pollination → Seed formation → Fertilization → Fruit formation",
-        "Fertilization → Pollination → Seed formation → Fruit formation",
-        "Pollination → Fertilization → Fruit formation → Seed formation"
-      ],
-      correct: 0
-    },
-    {
-      question: "During megasporogenesis, the functional megaspore is the",
-      options: [
-        "First micropylar megaspore",
-        "Second micropylar megaspore",
-        "Third micropylar megaspore",
-        "Chalazal megaspore"
-      ],
-      correct: 3
-    },
-    {
-      question: "Which of the following secretions helps in pollen tube guidance?",
-      options: [
-        "Nectar",
-        "Pollenkitt",
-        "Pistil mucilage",
-        "Gestation fluid"
-      ],
-      correct: 2
-    },
-    {
-      question: "Which of the following is a technical term for self-pollination that occurs within a bisexual flower?",
-      options: [
-        "Geitonogamy",
-        "Autogamy",
-        "Xenogamy",
-        "Apogamy"
-      ],
-      correct: 1
-    },
-    {
-      question: "In an angiosperm embryo sac, the two polar nuclei are formed by",
-      options: [
-        "Synergids fusion",
-        "Egg cell division",
-        "Central cell division",
-        "Antipodal cell division"
-      ],
-      correct: 2
-    },
-    {
-      question: "Which of the following best describes the phenomenon of double fertilization?",
-      options: [
-        "Fusion of two egg cells with one sperm",
-        "Fusion of one male gamete with egg and other with polar nuclei",
-        "Fusion of two male gametes with one egg",
-        "Fusion of two polar nuclei with one male gamete"
-      ],
-      correct: 1
-    },
-    {
-      question: "In which of the following is embryogeny without fertilization seen?",
-      options: [
-        "Polyembryony",
-        "Parthenocarpy",
-        "Apomixis",
-        "Androgenesis"
-      ],
-      correct: 2
-    },
-    {
-      question: "Which of the following is an example of outbreeding device?",
-      options: [
-        "Cleistogamy",
-        "Dichogamy",
-        "Geitonogamy",
-        "Chasmogamy"
-      ],
-      correct: 1
-    },
-    {
-      question: "The term ‘pericarp’ refers to",
-      options: [
-        "Seed coat",
-        "Fruit wall",
-        "Seed-endosperm complex",
-        "Funiculus"
-      ],
-      correct: 1
-    },
-    {
-      question: "Which of the following parts of the flower becomes seed coat after fertilization?",
-      options: [
-        "Integuments",
-        "Nucellus",
-        "Funiculus",
-        "Perianth"
-      ],
-      correct: 0
-    },
-    {
-      question: "Which one of the following correctly describes a superior ovary?",
-      options: [
-        "Ovary above the attachment of other floral parts",
-        "Ovary below the attachment of other floral parts",
-        "Ovary fused with the floral parts",
-        "Ovary fused with the receptacle"
-      ],
-      correct: 0
-    },
-    {
-      question: "Assertion (I): Self-incompatibility prevents self-fertilization.\nReason (II): It is a post-pollination, pre-zygotic barrier.",
-      options: [
-        "Both I and II are true and II explains I",
-        "Both I and II are true but II does not explain I",
-        "I is true, II is false",
-        "I is false, II is true"
-      ],
-      correct: 0
-    },
-    {
-      question: "Which of the following sugar is the main product of photosynthesis that is translocated via phloem to developing seeds?",
-      options: [
-        "Sucrose",
-        "Glucose",
-        "Fructose",
-        "Starch"
-      ],
-      correct: 0
-    },
-    {
-      question: "Which one of the following processes directly leads to formation of zygote in angiosperms?",
-      options: [
-        "Syngamy",
-        "Triple fusion",
-        "Karyogamy",
-        "Microsporogenesis"
-      ],
-      correct: 0
-    },
-    {
-      question: "Which of the following occurs immediately after fertilization in angiosperms?",
-      options: [
-        "Embryo development",
-        "Seed dispersal",
-        "Fruit ripening",
-        "Germination"
-      ],
-      correct: 0
-    },
-    {
-      question: "Which of the following is NOT a product of double fertilization?",
-      options: [
-        "Primary endosperm",
-        "Zygote",
-        "Embryo",
-        "Polyembryony"
-      ],
-      correct: 3
-    },
-    {
-      question: "In which of the following is the micropyle retained after seed formation?",
-      options: [
-        "Castor",
-        "Pea",
-        "Chickpea",
-        "Gram"
-      ],
-      correct: 0
-    },
-    {
-      question: "Which of the following structures represents the male gametophyte in angiosperms?",
-      options: [
-        "Microspore mother cell",
-        "Pollen grain",
-        "Antheridium",
-        "Pollen tube"
-      ],
-      correct: 1
-    },
-    {
-      question: "Which of the following is an example of gametophytic incompatibility in angiosperms?",
-      options: [
-        "Self-incompatibility",
-        "Heterostyly",
-        "Herkogamy",
-        "Dichogamy"
-      ],
-      correct: 0
-    },
-    {
-      question: "Which of the following is responsible for pollen dispersal in anemophilous plants?",
-      options: [
-        "Sticky pollen grains",
-        "Light, non-sticky pollen grains",
-        "Large, fragrant flowers",
-        "Brightly colored petals"
-      ],
-      correct: 1
-    },
-    {
-      question: "Assertion (I): Hydrophily is pollination by water.\nReason (II): Anemophily is pollination by air currents.",
-      options: [
-        "Both I and II are true and II explains I",
-        "Both I and II are true but II does not explain I",
-        "I is true, II is false",
-        "I is false, II is true"
-      ],
-      correct: 1
-    },
-    {
-      question: "Which one of these is a characteristic feature of entomophilous pollen?",
-      options: [
-        "Small, smooth pollen",
-        "Large, spiny pollen",
-        "Light, airborne pollen",
-        "Elongated, winged pollen"
-      ],
-      correct: 1
-    },
-    {
-      question: "Which of the following occurs in the embryo sac before fertilization?",
-      options: [
-        "Fusion of polar nuclei",
-        "Antipodal cell degeneration",
-        "Synergid degeneration",
-        "Formation of generative cell"
-      ],
-      correct: 2
-    },
-    {
-      question: "Which one of these best describes the mechanism of self-incompatibility in many flowering plants?",
-      options: [
-        "Physical separation of male and female organs",
-        "Biochemical rejection of self-pollen",
-        "Temporal separation of pollen release and stigma receptivity",
-        "Structural barriers in the flower"
-      ],
-      correct: 1
-    },
-    {
-      question: "Assertion (I): In parietal placentation, ovules are attached to the walls of the ovary.\nReason (II): Mustard exhibits parietal placentation.",
-      options: [
-        "Both I and II are true and II explains I",
-        "Both I and II are true but II does not explain I",
-        "I is true, II is false",
-        "I is false, II is true"
-      ],
-      correct: 1
-    }
-  ]
-},
-zoology: {
-  name: 'Zoology',
-  icon: <Microscope className="w-6 h-6" />,
-  color: 'bg-blue-500',
-  questions: [
-    {
-      question: "Which cells in the testes secrete testosterone?",
-      options: ["Sertoli cells", "Leydig cells", "Spermatogonia", "Myoid cells"],
-      correct: 1
-    },
-    {
-      question: "Which structure stores spermatozoa until ejaculation?",
-      options: ["Vas deferens", "Seminal vesicle", "Epididymis", "Ejaculatory duct"],
-      correct: 2
-    },
-    {
-      question: "Sertoli cells are responsible for:",
-      options: [
-        "Spermatid release",
-        "Nourishment of developing sperm",
-        "Testosterone production",
-        "Storage of sperm"
-      ],
-      correct: 1
-    },
-    {
-      question: "Assertion (I): Spermatogenesis begins at puberty.\nReason (II): Prior to puberty, Sertoli cells do not respond to FSH.",
-      options: [
-        "Both I and II are true and II explains I",
-        "Both I and II are true but II does not explain I",
-        "I is true, II is false",
-        "I is false, II is true"
-      ],
-      correct: 0
-    },
-    {
-      question: "FSH in males acts on:",
-      options: ["Leydig cells", "Sertoli cells", "Spermatogonia", "Epididymis"],
-      correct: 1
-    },
-    {
-  question: "Assertion (I): Long-term use of combined oral contraceptive pills (OCPs) reduces the risk of ovarian and endometrial cancers.\nReason (II): OCPs suppress ovulation by inhibiting the LH surge.",
-  options: [
-    "Both I and II are true and II explains I",
-    "Both I and II are true but II does not explain I",
-    "I is true, II is false",
-    "I is false, II is true"
-  ],
-  correct: 0
-},
-    {
-      question: "In females, the primary follicle develops into a secondary follicle under the influence of:",
-      options: ["FSH", "LH", "Estrogen", "Progesterone"],
-      correct: 0
-    },
-    {
-      question: "Graafian follicle is also called:",
-      options: ["Tertiary follicle", "Secondary follicle", "Primordial follicle", "Primary follicle"],
-      correct: 0
-    },
-    {
-      question: "Assertion (I): Ovulation is triggered by an LH surge.\nReason (II): Estrogen levels peak just before ovulation.",
-      options: [
-        "Both I and II are true and II explains I",
-        "Both I and II are true but II does not explain I",
-        "I is true, II is false",
-        "I is false, II is true"
-      ],
-      correct: 0
-    },
-    {
-      question: "Which phase of the menstrual cycle is characterized by endometrial proliferation?",
-      options: ["Menstrual phase", "Proliferative phase", "Secretory phase", "Ischemic phase"],
-      correct: 1
-    },
-    {
-      question: "Assertion (I): Corpus luteum secretes progesterone after ovulation.\nReason (II): Progesterone maintains the endometrium for implantation.",
-      options: [
-        "Both I and II are true and II explains I",
-        "Both I and II are true but II does not explain I",
-        "I is true, II is false",
-        "I is false, II is true"
-      ],
-      correct: 0
-    },
-    {
-      question: "The average duration of the menstrual cycle is approximately:",
-      options: ["21–25 days", "26–28 days", "28–35 days", "35–40 days"],
-      correct: 1
-    },
-    {
-      question: "A primary oocyte is arrested in which stage of meiosis until ovulation?",
-      options: ["Prophase I", "Metaphase I", "Prophase II", "Metaphase II"],
-      correct: 0
-    },
-    {
-      question: "A secondary oocyte is arrested in which stage of meiosis until fertilization?",
-      options: ["Metaphase I", "Metaphase II", "Anaphase II", "Telophase II"],
-      correct: 1
-    },
-    {
-      question: "The site of fertilization in the human female is:",
-      options: [
-        "Uterine cavity",
-        "Isthmus of oviduct",
-        "Ampullary region of the oviduct",
-        "Cervix"
-      ],
-      correct: 2
-    },
-    {
-      question: "Assertion (I): hCG is produced by the syncytiotrophoblast.\nReason (II): hCG maintains the corpus luteum.",
-      options: [
-        "Both I and II are true and II explains I",
-        "Both I and II are true but II does not explain I",
-        "I is true, II is false",
-        "I is false, II is true"
-      ],
-      correct: 0
-    },
-    {
-      question: "Assertion (I): Sperm capacitation occurs in the epididymis.\nReason (II): Capacitation removes the glycoprotein coat on the sperm.",
-      options: [
-        "Both I and II are true and II explains I",
-        "Both I and II are true but II does not explain I",
-        "I is true, II is false",
-        "I is false, II is true"
-      ],
-      correct: 3
-    },
-    {
-      question: "Which component of semen provides energy to sperm?",
-      options: ["Fructose", "Proteins", "Prostaglandins", "Enzymes"],
-      correct: 0
-    },
-    {
-      question: "Colostrum contains high levels of:",
-      options: ["Proteins", "Antibodies", "Fats", "Lactose"],
-      correct: 1
-    },
-    {
-      question: "Amenorrhea refers to the absence of:",
-      options: ["Menstruation", "Ovulation", "Puberty", "Fertilization"],
-      correct: 0
-    },
-    {
-      question: "Polycystic ovary syndrome is characterized by:",
-      options: [
-        "Multiple follicular cysts",
-        "Increased FSH",
-        "Decreased LH",
-        "Hypoandrogenism"
-      ],
-      correct: 0
-    },
-    {
-      question: "An ectopic pregnancy most commonly occurs in the:",
-      options: [
-        "Uterine tube",
-        "Uterine cavity",
-        "Ovary",
-        "Peritoneal cavity"
-      ],
-      correct: 0
-    },
-    {
-      question: "Vasectomy in males results in:",
-      options: [
-        "Blocking the vas deferens",
-        "Removing the testes",
-        "Removing the prostate",
-        "Blocking the urethra"
-      ],
-      correct: 0
-    },
-    {
-      question: "Tubectomy in females is the surgical removal of:",
-      options: ["Uterus", "Ovaries", "Fallopian tubes", "Vagina"],
-      correct: 2
-    },
-    {
-      question: "Azoospermia means the absence of:",
-      options: ["Sperm in semen", "Testosterone", "Sperm count test", "Seminal vesicles"],
-      correct: 0
-    },
-    {
-      question: "Which placental hormone stimulates maternal metabolism to ensure an adequate supply of nutrients to the fetus?",
-      options: ["hCG", "Human placental lactogen (hPL)", "Progesterone", "Estrogen"],
-      correct: 1
-    },
-    {
-      question: "Which method of contraception is based on timing of ovulation?",
-      options: ["Rhythm method", "Barrier method", "IUCD", "Sterilization"],
-      correct: 0
-    },
-    {
-      question: "Which contraceptive device acts by releasing copper ions?",
-      options: ["Condom", "Oral pill", "IUCD", "Emergency contraceptive pill"],
-      correct: 2
-    },
-    {
-      question: "Which barrier contraceptive also protects against STDs?",
-      options: ["Diaphragm", "Condom", "IUCD", "Oral pill"],
-      correct: 1
-    },
-    {
-      question: "Which hormone-based contraceptive pill prevents ovulation by inhibiting the LH surge?",
-      options: [
-        "Progestin-only pill",
-        "Combined oral contraceptive pill",
-        "Emergency contraceptive pill",
-        "IUCD"
-      ],
-      correct: 1
-    },
-    {
-      question: "Assertion (I): Tubectomy is an irreversible method of sterilization.\nReason (II): Vasectomy can be reversed by vasovasostomy.",
-      options: [
-        "Both I and II are true and II explains I",
-        "Both I and II are true but II does not explain I",
-        "I is true, II is false",
-        "I is false, II is true"
-      ],
-      correct: 1
-    },
-    {
-      question: "Which method prevents implantation of a fertilized ovum in the uterus?",
-      options: [
-        "Oral contraceptive pill",
-        "IUCD",
-        "Condom",
-        "Withdrawal method"
-      ],
-      correct: 1
-    },
-    {
-      question: "The STD caused by Treponema pallidum is:",
-      options: ["Chlamydia", "Syphilis", "Gonorrhea", "HIV"],
-      correct: 1
-    },
-    {
-      question: "Assertion (I): Pap smear test is used for early detection of cervical cancer.\nReason (II): Human papillomavirus infection is the most important risk factor for cervical cancer.",
-      options: [
-        "Both I and II are true and II explains I",
-        "Both I and II are true but II does not explain I",
-        "I is true, II is false",
-        "I is false, II is true"
-      ],
-      correct: 1
-    },
-    {
-      question: "Which STD is viral and has no complete cure?",
-      options: ["Syphilis", "Gonorrhea", "HIV", "Chlamydia"],
-      correct: 2
-    },
-    {
-      question: "Which assisted reproductive technology involves injecting sperm directly into the ovum?",
-      options: ["IVF", "ZIFT", "GIFT", "ICSI"],
-      correct: 3
-    },
-    {
-      question: "Amniocentesis is done to:",
-      options: [
-        "Determine fetal sex",
-        "Remove amniotic fluid",
-        "Detect fetal genetic abnormalities",
-        "Provide fetal nourishment"
-      ],
-      correct: 2
-    },
-    {
-      question: "Genetic counseling is provided to couples:",
-      options: [
-        "To prevent pregnancy",
-        "After detection of a genetic disorder",
-        "For STD treatment",
-        "For contraception advice"
-      ],
-      correct: 1
-    },
-    {
-      question: "Which hormone is responsible for the milk ejection reflex?",
-      options: ["Prolactin", "Oxytocin", "Estrogen", "Progesterone"],
-      correct: 1
-    },
-    {
-      question: "Menopause is defined as the permanent cessation of:",
-      options: ["Ovulation", "Pregnancy", "Menstruation", "Fertility"],
-      correct: 2
-    },
-    {
-      question: "Assertion (I): Ovulation detection kits measure LH surge in urine.\nReason (II): LH surge occurs about 24–36 hours before ovulation.",
-      options: [
-        "Both I and II are true and II explains I",
-        "Both I and II are true but II does not explain I",
-        "I is true, II is false",
-        "I is false, II is true"
-      ],
-      correct: 0
-    },
-    {
-      question: "Which screening test is recommended for early detection of breast cancer?",
-      options: ["Pap smear", "Mammography", "Colonoscopy", "PSA test"],
-      correct: 1
-    },
-    {
-      question: "Which hormone is known as the pregnancy hormone?",
-      options: ["Estrogen", "Progesterone", "hCG", "Prolactin"],
-      correct: 2
-    },
-    {
-      question: "Which condition can be treated by in vitro fertilization (IVF)?",
-      options: [
-        "Blocked fallopian tubes",
-        "Oligospermia",
-        "Polycystic ovary syndrome",
-        "All of the above"
-      ],
-      correct: 0
-    },
-    {
-      question: "The lactational amenorrhea method is effective as contraception when breastfeeding is:",
-      options: [
-        "Frequent and exclusive",
-        "Supplemented",
-        "Occasional",
-        "Never"
-      ],
-      correct: 0
-    },
-    {
-      question: "Assertion (I): GnRH is released in a pulsatile manner.\nReason (II): Continuous administration of GnRH analogues leads to downregulation of GnRH receptors on the pituitary.",
-      options: [
-        "Both I and II are true and II explains I",
-        "Both I and II are true but II does not explain I",
-        "I is true, II is false",
-        "I is false, II is true"
-      ],
-      correct: 0
-    },
-    {
-      question: "Which of the following best explains why mifepristone (RU-486) induces medical abortion?",
-      options: [
-        "It mimics progesterone at receptor sites",
-        "It blocks progesterone receptors, leading to breakdown of endometrium",
-        "It blocks estrogen production at the ovary",
-        "It stimulates prostaglandin release directly"
-      ],
-      correct: 1
-    },
-    {
-      question: "Assertion (I): Combined oral contraceptives contain both estrogen and progesterone.\nReason (II): Estrogen prevents FSH release to inhibit follicle development, while progesterone increases cervical mucus viscosity.",
-      options: [
-        "Both I and II are true and II explains I",
-        "Both I and II are true but II does not explain I",
-        "I is true, II is false",
-        "I is false, II is true"
-      ],
-      correct: 0
-    },
-    {
-      question: "Which statement about capacitation of sperm is correct?",
-      options: [
-        "It occurs in the seminiferous tubules and involves acrosome activation",
-        "It occurs in the female reproductive tract and involves removal of cholesterol from the sperm membrane",
-        "It occurs in the epididymis and prepares sperm for mitochondrial activation",
-        "It occurs at fertilization and involves fusion of sperm and oocyte membranes"
-      ],
-      correct: 1
-    },
-    {
-      question: "Assertion (I): hCG has a longer half-life than LH.\nReason (II): hCG shares the same α-subunit as LH but has a different β-subunit that resists degradation.",
-      options: [
-        "Both I and II are true and II explains I",
-        "Both I and II are true but II does not explain I",
-        "I is true, II is false",
-        "I is false, II is true"
-      ],
-      correct: 0
-    },
-    {
-      question: "During implantation, which of the following events occurs first?",
-      options: [
-        "Blastocyst hatching from zona pellucida",
-        "Trophoblast differentiation into syncytiotrophoblast",
-        "Decidual reaction in endometrium",
-        "Formation of primitive streak"
-      ],
-      correct: 0
-    },
-    {
-      question: "Assertion (I): Blood-testis barrier is formed by tight junctions between adjacent Sertoli cells.\nReason (II): This barrier prevents immune cells from attacking developing spermatogenic cells.",
-      options: [
-        "Both I and II are true and II explains I",
-        "Both I and II are true but II does not explain I",
-        "I is true, II is false",
-        "I is false, II is true"
-      ],
-      correct: 0
-    }
-  ]
-}
-
-,
+  botany: {
+    name: 'Botany',
+    icon: <Leaf className="w-6 h-6" />,
+    color: 'bg-green-500',
+    questions: [
+      // You can populate Botany questions here if needed
+    ]
+  },
+  zoology: {
+    name: 'Zoology',
+    icon: <Microscope className="w-6 h-6" />,
+    color: 'bg-blue-500',
+    questions: [
+      // You can populate Zoology questions here if needed
+    ]
+  },
   physics: {
     name: 'Physics',
     icon: <Atom className="w-6 h-6" />,
     color: 'bg-purple-500',
     questions: [
-    //   {
-    //     question: "What is the SI unit of pressure?",
-    //     options: ["Newton", "Pascal", "Joule", "Watt"],
-    //     correct: 1
-    //   },
-    //   {
-    //     question: "Which electromagnetic wave has the shortest wavelength?",
-    //     options: ["Gamma rays", "X-rays", "Ultraviolet", "Visible light"],
-    //     correct: 0
-    //   },
-    //   {
-    //     question: "What is the principle behind a transformer?",
-    //     options: ["Electromagnetic induction", "Coulomb's law", "Ohm's law", "Photoelectric effect"],
-    //     correct: 0
-    //   },
-    //   {
-    //     question: "Which particle has a negative charge?",
-    //     options: ["Proton", "Neutron", "Electron", "Alpha particle"],
-    //     correct: 2
-    //   },
-    //   {
-    //     question: "What is the formula for kinetic energy?",
-    //     options: ["mgh", "mc²", "½mv²", "Fd"],
-    //     correct: 2
-    //   }
+      {
+        id: 1,
+        question: `
+          Two point charges +Q and –Q are separated by a distance 2a in vacuum. 
+          What is the magnitude of the electric field at a point P located at a distance 
+          a along the perpendicular bisector of the line joining the charges?
+        `,
+        answer: `
+          \\[
+            E \;=\; \frac{1}{4\\pi\\varepsilon_0}\\frac{Q}{a^2}.
+          \\]
+          Explanation:
+          Each charge is at distance \\(r = \\sqrt{a^2 + a^2} = a\\sqrt{2}\\) from P. 
+          The horizontal components cancel, and the vertical components add:
+          \\[
+            E = 2 \\cdot \\left( \\frac{kQ}{(a\\sqrt{2})^2} \\cdot \\frac{a}{a\\sqrt{2}} \\right)
+              = \\frac{kQ}{a^2}, 
+            \\quad k = \\frac{1}{4\\pi\\varepsilon_0}.
+          \\]
+        `
+      },
+      {
+        id: 2,
+        question: `
+          A uniformly charged infinitely long cylinder of radius \\(R\\) has volume charge density 
+          \\(\\rho\\). What is the magnitude of the electric field inside the cylinder at a radial 
+          distance \\(r < R\\)?
+        `,
+        answer: `
+          \\[
+            E(r) \;=\; \\frac{\\rho\\,r}{2\\,\\varepsilon_0}.
+          \\]
+          Explanation:
+          By Gauss’s law for a cylindrical Gaussian surface of radius \\(r\\) and length \\(L\\):
+          \\[
+            E \\cdot (2\\pi r L) \;=\; \\frac{\\rho\\,(\\pi r^2 L)}{\\varepsilon_0} 
+            \\;\Longrightarrow\; E = \\frac{\\rho\\,r}{2\\varepsilon_0}.
+          \\]
+        `
+      },
+      {
+        id: 3,
+        question: `
+          Four point charges, each of magnitude +q, are placed at the corners of a square of side \\(a\\). 
+          What is the electric potential at the centre of the square? (Take \\(V(\\infty)=0\\).)
+        `,
+        answer: `
+          Each corner is at distance \\(r = \\frac{a}{\\sqrt{2}}\\) from the centre. Thus
+          \\[
+            V_{\\text{centre}} 
+            = 4 \\times \\frac{1}{4\\pi\\varepsilon_0} \\cdot \\frac{q}{\\frac{a}{\\sqrt{2}}}
+            = \\frac{4q}{4\\pi\\varepsilon_0} \\cdot \\frac{\\sqrt{2}}{a}
+            = \\frac{\\sqrt{2}\\,q}{\\pi\\varepsilon_0\\,a}.
+          \\]
+        `
+      },
+      {
+        id: 4,
+        question: `
+          A thin spherical shell of radius \\(R\\) carries a surface charge density \\(\\sigma\\). 
+          What is the potential difference \\(V(R) - V(2R)\\)? 
+          (Reference: \\(V(\\infty)=0\\).)
+        `,
+        answer: `
+          Total charge \\(Q = 4\\pi R^2\\,\\sigma\\). Then
+          \\[
+            V(R) = \\frac{1}{4\\pi\\varepsilon_0} \\cdot \\frac{Q}{R}, 
+            \\quad
+            V(2R) = \\frac{1}{4\\pi\\varepsilon_0} \\cdot \\frac{Q}{2R}.
+          \\]
+          So
+          \\[
+            V(R) - V(2R)
+            = \\frac{Q}{4\\pi\\varepsilon_0} \\Bigl( \\frac{1}{R} - \\frac{1}{2R} \\Bigr)
+            = \\frac{Q}{8\\pi\\varepsilon_0\\,R}
+            = \\frac{4\\pi R^2\\,\\sigma}{8\\pi\\varepsilon_0\\,R}
+            = \\frac{\\sigma\\,R}{2\\,\\varepsilon_0}.
+          \\]
+        `
+      },
+      {
+        id: 5,
+        question: `
+          An isolated conducting sphere of radius \\(a\\) carries a total charge +Q. 
+          It is surrounded coaxially by a conducting spherical shell of inner radius \\(b\\) 
+          and outer radius \\(c\\) (\\(b > a\\)). The shell is grounded. What is the capacitance 
+          between the inner sphere and ground?
+        `,
+        answer: `
+          When the outer shell is grounded, it is effectively at zero potential. The inner sphere 
+          behaves exactly like an isolated sphere of radius \\(a\\). Thus
+          \\[
+            C = 4\\pi\\varepsilon_0\\,a.
+          \\]
+        `
+      },
+      {
+        id: 6,
+        question: `
+          A parallel‐plate capacitor (area \\(A\\), separation \\(d\\)) is charged to potential \\(V\\) 
+          and then disconnected from the battery. A slab of dielectric constant \\(K\\) is inserted 
+          fully. Which of the following statements are true?
+          
+          1. Charge on plates remains the same.  
+          2. Potential difference across plates decreases to \\(V/K\\).  
+          3. Energy stored increases by a factor \\(K\\).  
+          4. Energy stored decreases by a factor \\(K\\).  
+        `,
+        answer: `
+          1. True (battery is disconnected → no path for charge to flow).  
+          2. True 
+             \\[
+               C_{\\text{new}} = K C_{0}, \\quad Q = C_{0}V \\implies V_{\\text{new}} = \\frac{Q}{C_{\\text{new}}} = \\frac{V}{K}.
+             \\]
+          3. False.  
+          4. True 
+             \\[
+               U_{\\text{old}} = \\tfrac{Q^2}{2C_{0}}, \\quad U_{\\text{new}} = \\tfrac{Q^2}{2(KC_{0})} = \\frac{1}{K}U_{\\text{old}}.
+             \\]
+        `
+      },
+      {
+        id: 7,
+        question: `
+          A solid nonconducting sphere of radius \\(R\\) has uniform volume charge density \\(\\rho\\). 
+          What is the potential at \\(r = \\tfrac{R}{2}\\) (with \\(V(\\infty)=0\\))?
+        `,
+        answer: `
+          For \\(r \\le R\\), 
+          \\[
+            V(r) = \\frac{\\rho}{6\\varepsilon_0}\\Bigl(3R^2 - r^2\\Bigr).
+          \\]
+          Hence at \\(r = R/2\\):
+          \\[
+            V\\Bigl( \\tfrac{R}{2} \\Bigr)
+            = \\frac{\\rho}{6\\varepsilon_0} \\Bigl(3R^2 - \\tfrac{R^2}{4}\\Bigr)
+            = \\frac{\\rho}{6\\varepsilon_0} \\cdot \\frac{11R^2}{4}
+            = \\frac{11\\,\\rho\\,R^2}{24\\,\\varepsilon_0}.
+          \\]
+          In terms of total charge \\(Q = \\tfrac{4}{3}\\pi R^3\\,\\rho\\),  
+          \\[
+            V\\Bigl(\\tfrac{R}{2}\\Bigr)
+            = \\frac{11}{24\\,\\varepsilon_0} \\cdot \\frac{3Q}{4\\pi R^3} \\cdot R^2
+            = \\frac{11Q}{32\\pi\\varepsilon_0\\,R}.
+          \\]
+        `
+      },
+      {
+        id: 8,
+        question: `
+          A point charge +Q is placed at the centre of a hollow conducting spherical shell 
+          (inner radius \\(a\\), outer radius \\(b\\)). What is the electric field at a point \\(r\\) 
+          such that \\(a < r < b\\)?
+        `,
+        answer: `
+          Inside the conducting material, \\(E = 0\\) (electrostatic shielding).  
+          Therefore, for \\(a < r < b,\\)  
+          \\[
+            E(r) = 0.
+          \\]
+        `
+      },
+      {
+        id: 9,
+        question: `
+          A parallel‐plate capacitor (vacuum) of capacitance \\(C_0\\) is connected to a 12 V battery. 
+          After charging, the battery is disconnected and a dielectric slab \\(K=4\\) is inserted fully. 
+          The original energy was \\(U_0 = \\tfrac{1}{2}C_0(12)^2\\). 
+          The new stored energy is:
+          
+          (A) \\(U_0/4\\)  
+          (B) \\(U_0\\)  
+          (C) \\(4\,U_0\\)  
+          (D) \\(2\,U_0\\)  
+        `,
+        answer: `
+          Since \\(Q\\) remains constant (battery disconnected) and \\(C_{\\text{new}} = 4C_0\\),
+          \\[
+            U_{\\text{new}} = \\frac{Q^2}{2\,C_{\\text{new}}} 
+            = \\frac{Q^2}{2\\,(4C_0)} 
+            = \\frac{1}{4} \\cdot \\frac{Q^2}{2C_0} 
+            = \\frac{U_0}{4}.
+          \\]
+          So correct choice: (A) \\(U_0/4\\).
+        `
+      },
+      {
+        id: 10,
+        question: `
+          An infinitely large plane slab of thickness \\(2a\\) has uniform volume charge density \\(\\rho\\). 
+          Find the electric field at a point a distance \\(x\\) from its mid‐plane, where \\(0 < x < a\\).
+        `,
+        answer: `
+          By Gauss’s law for a slab, inside the thickness (\\(|x| < a\\)):
+          \\[
+            E(x) = \\frac{\\rho\,x}{\\varepsilon_0}, 
+            \\quad \\text{(directed normal to the slab).}
+          \\]
+          Outside (\\(|x| > a\\)), \\(E = \\rho a/\\varepsilon_0\\) (constant).
+        `
+      },
+      {
+        id: 11,
+        question: `
+          A thin ring of radius \\(R\\) carries a uniform total charge \\(+Q\\). A small charge \\(+q\\) 
+          is placed on the axis at \\(x = R\\) from the centre. What is the magnitude of the force on \\(+q\\)?
+        `,
+        answer: `
+          The axial field at distance \\(x = R\\) is
+          \\[
+            E_x = \\frac{1}{4\\pi\\varepsilon_0} \\cdot \\frac{Q\\,x}{(R^2 + x^2)^{3/2}} 
+            \\quad \\text{with} \\; x = R.
+          \\]
+          Hence
+          \\[
+            E_x = \\frac{1}{4\\pi\\varepsilon_0} \\cdot \\frac{Q\\,R}{\\bigl(R^2 + R^2\\bigr)^{3/2}}
+                = \\frac{1}{4\\pi\\varepsilon_0} \\cdot \\frac{Q\\,R}{(2R^2)^{3/2}}
+                = \\frac{Q}{8\\sqrt{2}\\,\\pi\\varepsilon_0\\,R^2}.
+          \\]
+          Therefore,
+          \\[
+            F = q\,E_x = \\frac{Q\,q}{8\\sqrt{2}\\,\\pi\\varepsilon_0\\,R^2}.
+          \\]
+        `
+      },
+      {
+        id: 12,
+        question: `
+          A parallel‐plate capacitor with plate area \\(A\\) and separation \\(d\\) is half‐filled by a 
+          dielectric \\(K=3\\) (slab thickness \\(d/2\\)), the other half is vacuum. 
+          Find its equivalent capacitance in terms of \\(\\varepsilon_0 A / d\\).
+        `,
+        answer: `
+          Model as two capacitors in series:
+          \\[
+            C_1 = \\frac{2\\varepsilon_0 K A}{d} = \\frac{2\\times3\\,\\varepsilon_0 A}{d} = \\frac{6\\varepsilon_0 A}{d}, 
+            \\quad
+            C_2 = \\frac{2\\varepsilon_0 A}{d}.
+          \\]
+          In series,
+          \\[
+            \\frac{1}{C} = \\frac{1}{C_1} + \\frac{1}{C_2}
+            = \\frac{d}{6\\varepsilon_0 A} + \\frac{d}{2\\varepsilon_0 A}
+            = \\frac{d}{6\\varepsilon_0 A} + \\frac{3d}{6\\varepsilon_0 A}
+            = \\frac{4d}{6\\varepsilon_0 A}
+            = \\frac{2d}{3\\varepsilon_0 A}.
+          \\]
+          Hence
+          \\[
+            C = \\frac{3\\varepsilon_0 A}{2d}.
+          \\]
+        `
+      },
+      {
+        id: 13,
+        question: `
+          A dielectric slab of constant \\(K\\) is inserted fully into a parallel‐plate capacitor 
+          (original capacitance \\(C_0\\)) with the battery still connected (\\(V=100\\) V). 
+          Find the new energy stored in terms of \\(C_0\\) and \\(K\\).
+        `,
+        answer: `
+          When the battery remains connected,
+          \\[
+            C_{\\text{new}} = K\,C_0, 
+            \\quad V = 100\\text{ V (constant)}.
+          \\]
+          Energy:
+          \\[
+            U_{\\text{new}} 
+            = \\tfrac{1}{2} C_{\\text{new}} V^2 
+            = \\tfrac{1}{2} (K C_0) (100)^2 
+            = K \\cdot \\bigl[\\tfrac{1}{2} C_0 (100)^2\\bigr] 
+            = K\,U_0.
+          \\]
+        `
+      },
+      {
+        id: 14,
+        question: `
+          A solid insulating sphere of radius \\(R\\) has a nonuniform charge density 
+          \\(\\rho(r) = \\rho_0\\,\\frac{r}{R}\\) (varies linearly). 
+          Find the electric field at a point \\(r < R\\).
+        `,
+        answer: `
+          Enclosed charge:
+          \\[
+            Q_{\\rm enc}(r) 
+            = \\int_{0}^{r} \\rho_0 \\frac{r'}{R} \\cdot 4\\pi r'^2 \\,dr'
+            = \\frac{4\\pi \\rho_0}{R} \\int_{0}^{r} r'^3 \\,dr'
+            = \\frac{4\\pi \\rho_0}{R} \\cdot \\frac{r^4}{4}
+            = \\pi \\rho_0 \\frac{r^4}{R}.
+          \\]
+          By Gauss’s law,
+          \\[
+            E(4\\pi r^2) = \\frac{Q_{\\rm enc}(r)}{\\varepsilon_0}
+            \\;\Longrightarrow\;
+            E(r) 
+            = \\frac{1}{4\\pi\\varepsilon_0} \\cdot \\frac{\\pi \\rho_0 \\tfrac{r^4}{R}}{r^2}
+            = \\frac{\\rho_0}{4\\,\\varepsilon_0} \\cdot \\frac{r^2}{R}.
+          \\]
+        `
+      },
+      {
+        id: 15,
+        question: `
+          A point charge +Q is at the origin. What is the potential difference 
+          \\(V(2a) - V(a/2)\\) on the x-axis? (Reference: \\(V(\\infty) = 0\\).)
+        `,
+        answer: `
+          \\[
+            V(r) = \\frac{1}{4\\pi\\varepsilon_0} \\cdot \\frac{Q}{r}.
+          \\]
+          Therefore,
+          \\[
+            V(2a) - V(a/2)
+            = \\frac{Q}{4\\pi\\varepsilon_0} \\Bigl( \\frac{1}{2a} - \\frac{1}{\\tfrac{a}{2}} \\Bigr)
+            = \\frac{Q}{4\\pi\\varepsilon_0} \\Bigl( \\frac{1}{2a} - \\frac{2}{a} \\Bigr)
+            = \\frac{Q}{4\\pi\\varepsilon_0\\,a} \\Bigl( \\tfrac{1}{2} - 2 \\Bigr)
+            = -\\frac{3Q}{8\\pi\\varepsilon_0\\,a}.
+          \\]
+          (Negative sign indicates \\(V(a/2)\\) is higher than \\(V(2a)\\).)
+        `
+      },
+      {
+        id: 16,
+        question: `
+          Two identical small conducting spheres, each of mass \\(m\\), are connected by an 
+          insulating spring of natural length \\(L\\) and spring constant \\(k\\). They are each 
+          given charge +Q, then released to equilibrium, stretching the spring to length \\(L'\\). 
+          Derive the equation that determines \\(L'\\).
+        `,
+        answer: `
+          At equilibrium:
+          \\[
+            F_{\\rm spring} \\,=\\, F_{\\rm electrostatic} 
+            \\quad\\Longrightarrow\\quad
+            k\\,(L' - L) \\,=\\, \\frac{1}{4\\pi\\varepsilon_0} \\cdot \\frac{Q^2}{(L')^2}.
+          \\]
+          This must be solved for \\(L'\\).
+        `
+      },
+      {
+        id: 17,
+        question: `
+          A thin hemispherical shell of radius \\(R\\) is uniformly charged with total charge +Q. 
+          What is the potential at the centre of its flat face? (Take \\(V(\\infty)=0\\).)
+        `,
+        answer: `
+          Known result:
+          \\[
+            V_{\\text{centre}} 
+            = \\frac{Q}{8\\pi\\varepsilon_0\,R} \\bigl(1 + \\pi\\bigr).
+          \\]
+          Sketch of derivation: integrate contributions from rings at polar angle \\(\\theta\\). 
+        `
+      },
+      {
+        id: 18,
+        question: `
+          A coaxial cylindrical capacitor has inner radius \\(a\\), outer radius \\(b\\), and length \\(L\\). 
+          Find its capacitance per unit length.
+        `,
+        answer: `
+          \\[
+            C' = \\frac{2\\pi\\varepsilon_0}{\\ln\\bigl(\\tfrac{b}{a}\\bigr)}.
+          \\]
+        `
+      },
+      {
+        id: 19,
+        question: `
+          Three point charges occupy the vertices of a right-angled isosceles triangle: two charges +Q 
+          at the ends of the base (distance \\(a\\) apart), and –Q at the right-angle vertex. 
+          What is the net electric field at the right-angle vertex?
+        `,
+        answer: `
+          Place –Q at \\(C(0,0)\\), +Q at \\(A(a,0)\\) and +Q at \\(B(0,a)\\). We want \\(\\vec{E}_C\\):
+          
+          • Field from +Q at A (distance \\(a\\) to the right):  
+            \\[
+              \\vec{E}_A = \\frac{kQ}{a^2} \\,\\hat{i}.
+            \\]
+          
+          • Field from +Q at B (distance \\(a\\) upward):  
+            \\[
+              \\vec{E}_B = \\frac{kQ}{a^2} \\,\\hat{j}.
+            \\]
+          
+          • Field from –Q at C itself is zero.  
+          
+          Net:
+          \\[
+            \\vec{E}_C = \\frac{kQ}{a^2}(\\hat{i} + \\hat{j}).
+          \\]
+          Magnitude:
+          \\[
+            |\\vec{E}| = \\frac{kQ}{a^2} \\sqrt{1^2 + 1^2} = \\frac{\\sqrt{2}\\,kQ}{a^2}.
+          \\]
+          Direction: along the line \\(y=x\\) (45° above +x-axis).
+        `
+      },
+      {
+        id: 20,
+        question: `
+          A dipole of moment \\(\\vec{p}\\) is placed in a uniform electric field \\(\\vec{E}\\). 
+          What is its potential energy when the angle between \\(\\vec{p}\\) and \\(\\vec{E}\\) is \\(\\theta\\)?
+        `,
+        answer: `
+          \\[
+            U(\\theta) = -\\,\\vec{p} \\cdot \\vec{E} = -\,p\,E\\,\\cos\\theta.
+          \\]
+        `
+      },
+      // Five image-based NEET/AIMTS-style electrostatics questions
+      {
+        id: 21,
+        question: `
+          Refer to the diagram below. Two infinite parallel conducting plates are separated by distance \\(d\\), 
+          with the upper plate held at potential \\(V_0\\) and the lower plate grounded. A point charge +q 
+          is placed exactly midway between them.  
+          What is the magnitude of the net force on +q?  
+          (Assume vacuum between plates, and neglect edge effects.)
+        `,
+        image: (
+          <img
+            src="/images/electrostatics_q21.png"
+            alt="Two infinite parallel plates, separation d, upper plate at V0, lower grounded, charge q at midpoint"
+            className="mx-auto my-4 border"
+          />
+        ),
+        answer: `
+          The point charge at the midplane experiences zero net force (equipotential midway).  
+          Explanation:
+          By symmetry, induced charges on both plates are equal and opposite, creating equal and opposite forces on +q, so they cancel.
+        `
+      },
+      {
+        id: 22,
+        question: `
+          The figure below shows an electric dipole consisting of charges +q and –q separated by a fixed distance 
+          2a, placed in a uniform field \\(E\\) pointing to the right. The dipole is aligned at an angle \\(\\theta\\) 
+          with respect to the field.  
+          Determine the torque experienced by the dipole.
+        `,
+        image: (
+          <img
+            src="/images/electrostatics_q22.png"
+            alt="Dipole at angle theta in uniform electric field E"
+            className="mx-auto my-4 border"
+          />
+        ),
+        answer: `
+          \\[
+            \\tau = p\,E\\,\\sin\\theta, 
+            \\quad \\text{where } p = q \\cdot (2a).
+          \\]
+          Direction out of the plane (right-hand rule).
+        `
+      },
+      {
+        id: 23,
+        question: `
+          In the diagram below, a uniformly charged semicircular rod of radius \\(R\\) (charge density \\(\\lambda\\)) 
+          lies in the xy-plane from angle \\(0\\) to \\(\\pi\\). Find the electric field at the centre of curvature (origin).
+        `,
+        image: (
+          <img
+            src="/images/electrostatics_q23.png"
+            alt="Semicircular rod from 0 to pi with uniform linear charge density lambda"
+            className="mx-auto my-4 border"
+          />
+        ),
+        answer: `
+          For a semicircular arc:
+          \\[
+            E_x = 0, 
+            \\quad 
+            E_y = \\frac{1}{4\\pi\\varepsilon_0} \\cdot \\frac{2\\lambda}{R}.
+          \\]
+          Magnitude:  
+          \\[
+            E = \\frac{\\lambda}{2\\pi\\varepsilon_0 R}, 
+            \\quad \\text{directed along +y (towards flat face).}
+          \\]
+          (Because vertical components of all \\(dq\\) add, horizontal cancel.)
+        `
+      },
+      {
+        id: 24,
+        question: `
+          The figure below shows a point charge +Q at the centre of a square of side \\(a\\). A small test charge +q 
+          is placed at one corner. What is the net force on +q?  
+        `,
+        image: (
+          <img
+            src="/images/electrostatics_q24.png"
+            alt="Square of side a with central charge +Q and test charge +q at one corner"
+            className="mx-auto my-4 border"
+          />
+        ),
+        answer: `
+          Distance from centre to corner: \\(r = \\tfrac{a}{\\sqrt{2}}\\).  
+          Electric field at corner due to +Q at centre:
+          \\[
+            E = \\frac{1}{4\\pi\\varepsilon_0} \\cdot \\frac{Q}{\\bigl(\\tfrac{a}{\\sqrt{2}}\\bigr)^2} 
+              = \\frac{1}{4\\pi\\varepsilon_0} \\cdot \\frac{2Q}{a^2}.
+          \\]
+          Direction: from corner toward centre (along diagonal).  
+          Therefore, force on +q:
+          \\[
+            F = q\,E = \\frac{2kQq}{a^2}, 
+            \\quad \\text{directed inward along the diagonal.}
+          \\]
+        `
+      },
+      {
+        id: 25,
+        question: `
+          In the diagram below, a metallic sphere of radius \\(R\\) is grounded, and a point charge +q is located at 
+          distance \\(d\\) from its centre (outside, so \\(d > R\\)). Sketch the induced image charge configuration and 
+          find the magnitude and location of the image charge needed to satisfy the boundary conditions.
+        `,
+        image: (
+          <img
+            src="/images/electrostatics_q25.png"
+            alt="Grounded conducting sphere radius R with point charge q at distance d from centre"
+            className="mx-auto my-4 border"
+          />
+        ),
+        answer: `
+          By the method of images:
+          • Image charge magnitude: \\(q' = -q \\cdot \\frac{R}{d}.\\)  
+          • Location: along the line joining centre and +q, at distance \\(d' = \\frac{R^2}{d}\\) from the centre (inside sphere).  
+          
+          The potential on the sphere’s surface (grounded) is zero by construction of this image pair.
+        `
+      }
     ]
   },
   chemistry: {
@@ -989,31 +566,7 @@ zoology: {
     icon: <BookOpen className="w-6 h-6" />,
     color: 'bg-red-500',
     questions: [
-    //   {
-    //     question: "What is the atomic number of sodium (Na)?",
-    //     options: ["11", "12", "13", "14"],
-    //     correct: 0
-    //   },
-    //   {
-    //     question: "Which of these is a noble gas?",
-    //     options: ["Chlorine", "Neon", "Nitrogen", "Oxygen"],
-    //     correct: 1
-    //   },
-    //   {
-    //     question: "What type of bond is formed between Na+ and Cl-?",
-    //     options: ["Covalent", "Ionic", "Metallic", "Hydrogen"],
-    //     correct: 1
-    //   },
-    //   {
-    //     question: "Which element is a liquid at room temperature?",
-    //     options: ["Zinc", "Mercury", "Lead", "Copper"],
-    //     correct: 1
-    //   },
-    //   {
-    //     question: "What is the pH of a neutral solution?",
-    //     options: ["0", "7", "14", "1"],
-    //     correct: 1
-    //   }
+      // You can populate Chemistry questions here if needed
     ]
   }
 };
